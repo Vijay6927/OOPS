@@ -1,0 +1,43 @@
+Question 20. Implement a real case scenario by a proper C++ code to provide the solution to Diamond Problem in C++
+#include <iostream>
+
+// Base class
+class Animal {
+public:
+    void eat() {
+        std::cout << "Animal is eating." << std::endl;
+    }
+};
+
+// Intermediate classes inheriting from Animal
+class Mammal : virtual public Animal {
+public:
+    void breathe() {
+        std::cout << "Mammal is breathing." << std::endl;
+    }
+};
+
+class Bird : virtual public Animal {
+public:
+    void fly() {
+        std::cout << "Bird is flying." << std::endl;
+    }
+};
+
+// Diamond Problem arises here
+class Bat : public Mammal, public Bird {
+public:
+    void display() {
+        std::cout << "Bat can do multiple things:" << std::endl;
+        eat();      // Ambiguity due to multiple base classes
+        breathe();  // Ambiguity due to multiple base classes
+        fly();      // Ambiguity due to multiple base classes
+    }
+};
+
+int main() {
+    Bat bat;
+    bat.display();
+
+    return 0;
+}
