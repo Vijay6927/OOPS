@@ -1,0 +1,56 @@
+5.	Define a class Hotel in C++ with the following specifications
+
+Private members
+• Rno Data member to store room number
+• Name Data member to store customer name
+• Tariff Data member to store per day charges
+• NOD Data member to store number of days of stay
+• CALC() Function to calculate and return amount as NOD*Tariff ,and if the valueof days* Tariff >10000,then total amount is 1.05* days*Tariff.
+
+Public members
+• Checkin() Function to enter the content Rno, Name, Tariff and NOD
+• Checkout() Function to display Rno, Name, Tariff,
+NOD and Amount (amount to be displayed by calling function) CALC() class.
+
+#include<iostream>
+using namespace std;
+
+class hotel
+{
+    private:
+        string name;
+        int room, nod, tariff;
+        float calc();
+    public:
+        void checkin();
+        void checkout();
+};
+
+void hotel::checkin()
+{
+    cout<<"Enter name, room#, no of days, tariff"<<endl;
+    cin>>name>>room>>nod>>tariff;
+}
+void hotel::checkout()
+{
+    cout<<"Details are as follows: \n";
+    cout<<name<<""<<room<<""<<nod<<""<<tariff<<endl;
+    cout<<"The total amount is "<<calc()<<endl;;
+}
+float hotel::calc()
+{ 
+    if(nod*tariff>10000)
+    {
+        return nod*tariff*1.05;
+    }
+    else
+    { 
+        return nod*tariff;
+    }
+}
+int main()
+{
+    hotel obj;
+    obj.checkin();
+    obj.checkout();
+}
