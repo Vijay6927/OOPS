@@ -1,0 +1,57 @@
+Question 25. Construct a C++ program to demonstrate different methods of List, Vector and Map in STL (Standard Template Library).
+#include <iostream>
+#include <list>
+#include <vector>
+#include <map>
+
+int main() {
+    // List demonstration
+    std::cout << "List demonstration:" << std::endl;
+    std::list<int> myList;
+    
+    // Adding elements to the list
+    myList.push_back(10);
+    myList.push_back(20);
+    myList.push_front(5);
+
+    // Displaying elements using iterator
+    std::cout << "List elements: ";
+    for (auto it = myList.begin(); it != myList.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+
+    // Vector demonstration
+    std::cout << "\nVector demonstration:" << std::endl;
+    std::vector<int> myVector;
+
+    // Adding elements to the vector
+    myVector.push_back(30);
+    myVector.push_back(40);
+    myVector.push_back(50);
+
+    // Displaying elements using range-based for loop
+    std::cout << "Vector elements: ";
+    for (const auto& element : myVector) {
+        std::cout << element << " ";
+    }
+    std::cout << std::endl;
+
+    // Map demonstration
+    std::cout << "\nMap demonstration:" << std::endl;
+    std::map<std::string, int> myMap;
+
+    // Inserting elements into the map
+    myMap["one"] = 1;
+    myMap["two"] = 2;
+    myMap["three"] = 3;
+
+    // Displaying elements using iterator
+    std::cout << "Map elements: ";
+    for (auto it = myMap.begin(); it != myMap.end(); ++it) {
+        std::cout << "(" << it->first << ", " << it->second << ") ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
