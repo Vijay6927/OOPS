@@ -1,0 +1,78 @@
+.Anna is a contender for valedictorian of her high school. She wants to know how 
+many students (if any) have scored higher than her in the exams given during this 
+semester.
+Create a class named Student with the following specifications:
+➢ An instance variable named scores holds a student's 5 exam scores.
+➢ A void input () function reads 5 integers and saves them to scores.
+➢ An int calculateTotalScore() function that returns the sum of the student's scores.
+Input Format
+In the void Student::input() function, you must read 5 scores from standard input 
+and save them to your scores instance variable.
+Output Format
+In the int Student::calculateTotalScore() function, you must return the student's total 
+grade (the sum of the values in scores).
+The code in the editor will determine how many scores are larger than Anna’s and 
+print that number to the console.
+
+#include<iostream>
+using namespace std;
+
+class student
+{
+    private:
+        string name;
+        int marks[5];
+    public:
+        void input();
+        void disp();
+        int total();
+};
+void student::input()
+{
+    cout<<"Enter name and marks of 5 subjects\n";
+    cin>>name;
+    for(int i=0;i<5;i++)
+    {
+        cin>>marks[i];
+    }
+}
+void student::disp()
+{
+    cout<<"Displaying name and marks in 5 subjects\n";
+    cout<<name<<endl;
+    for(int i=0;i<5;i++)
+    {
+        cout<<marks[i] <<"";
+    }
+}
+int student::total()
+{
+    int sum=0;
+    for(int i=0;i<5;i++)
+    {
+        sum+=marks[i];
+    }
+    return sum;
+}
+int main()
+{
+    int n, val;
+    cout<<"Enter the marks of valedictorian\n";
+    cin>>val;
+    cout<<"Enter the number of students\n";
+    cin>>n;
+    student ar[n];
+    for(int i=0;i<n;i++)
+    {
+        ar[i].input();
+    }
+    int count=0;
+    for(int i=0;i<n;i++)
+    {
+        if(ar[i].total() > val)
+        {
+            count++;
+        }
+    }
+    cout<<"The number of students having more marks is : "<<count<<endl;
+}
